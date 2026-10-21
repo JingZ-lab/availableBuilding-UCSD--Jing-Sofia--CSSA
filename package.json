@@ -15,6 +15,7 @@
     "lint": "eslint --flag unstable_native_nodejs_ts_config "
   },
   "dependencies": {
+    "driver.js": "^1.10.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
