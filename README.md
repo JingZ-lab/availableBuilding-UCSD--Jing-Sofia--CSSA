@@ -76,3 +76,5 @@ These only apply to non-primitive types, like functions and objects, because pri
 Known issues:
 
 - I originally was going to use `$` as the suffix, but in VS Code, `$` is not considered a word character and doesn't get selected by ctrl+D. I purposefully included an underscore so it's clear it comes from a naming convention and isn't really part of the variable name (e.g. `myDeltaS` vs `myDelta_s`).
+
+This project extends [SheepTester/ucsd-classrooms](https://github.com/SheepTester/ucsd-classrooms).
