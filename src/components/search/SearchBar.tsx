@@ -38,6 +38,12 @@ export function SearchBar({
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState(0);
   const [ongoingOnly, setOngoingOnly] = useState(false);
+  const [availableDate, setAvailableDate] = useState("");
+const [availableStart, setAvailableStart] = useState("14:00");
+const [availableEnd, setAvailableEnd] = useState("16:00");
+
+const invalidTime =
+  availableEnd <= availableStart;
   const ref = useRef<HTMLInputElement>(null);
 
   const loaded = state.type === "loaded" && state.termId === termId;
@@ -157,6 +163,51 @@ export function SearchBar({
       <label
         className={`ongoing-only ${showResults ? "show-ongoing-only" : ""}`}
       >
+  <div
+  className="available-time-filter"
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "8px",
+    padding: "10px",
+    background: "white",
+    borderRadius: "8px",
+    alignItems: "center"
+  }}
+>
+  <label>
+    Available Date
+    <input
+      type="date"
+      value={availableDate}
+      onChange={(e) => setAvailableDate(e.target.value)}
+    />
+  </label>
+
+  <label>
+    Start Time
+    <input
+      type="time"
+      value={availableStart}
+      onChange={(e) => setAvailableStart(e.target.value)}
+    />
+  </label>
+
+  <label>
+    End Time
+    <input
+      type="time"
+      value={availableEnd}
+      onChange={(e) => setAvailableEnd(e.target.value)}
+    />
+  </label>
+
+  {invalidTime && (
+    <span role="alert" style={{ color: "red" }}>
+      End time must be after start time.
+    </span>
+  )}
+</div>
         <input
           type="checkbox"
           checked={ongoingOnly}
