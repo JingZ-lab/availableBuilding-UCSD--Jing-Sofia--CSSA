@@ -1,7 +1,7 @@
 export interface ClassMeeting {
-  days: number[]; // Sunday=0, Monday=1, ..., Saturday=6
-  start: string;   // e.g. "14:00"
-  end: string;     // e.g. "15:20"
+  days: number[]; 
+  start: string;  
+  end: string;     
   firstDate?: string;
   lastDate?: string;
 }
